@@ -1,0 +1,22 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Grey+Qo&family=Vazirmatn:wght@100..900&display=swap');
+header {
+    height: 7vh;
+    color: #211;
+    display: flex;
+    font-size:large;
+    justify-content: center;
+    background-color: #FFFCF7;
+    column-gap: 5vw;
+    margin: 4vw;
+    font-family: "Grey Qo";
+
+}
+header a {
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
+}
+header h2 {
+
+}
