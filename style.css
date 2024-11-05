@@ -3,7 +3,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: content-box;
     text-decoration: none;
     border: none;
     outline: none;
@@ -12,29 +12,41 @@
 
 html {
     font-size: 62.5%;
+    max-width: 100vw;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
+
+
 
 body {
     overflow-x: hidden;
-    height: 100vh;
-    width: 100%;
     background-color: black;
     color: white;
 
 }
 
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
 header {
-    margin-top: 20px;
+    margin: 0;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1rem 9%;
     filter: drop-shadow(10px);
     display: flex;
+    padding: 1rem;
     justify-content: space-between;
     align-items: center;
     z-index: 999;
+    backdrop-filter: blur(10px);
 }
 
 .logo {
@@ -52,8 +64,8 @@ header {
 nav a {
     font-size: 1.8rem;
     color: white;
-    margin-left: 4rem;
     font-weight: 500;
+    margin-right: 2vw;
     transition: 0.3s ease;
     border-bottom: 3px solid transparent;
 }
@@ -67,7 +79,7 @@ nav a.active {
 @media (max-width: 992px) {
     nav {
         position: absolute;
-         display: none; 
+        display: none;
         top: -10%;
         right: 10%;
         width: 80%;
@@ -111,7 +123,7 @@ section {
 }
 
 .home .home-content h1 {
-    font-size: 6rem;
+    font-size: 5.5rem;
     font-weight: 700;
     line-height: 1.3;
 }
@@ -126,10 +138,12 @@ span {
     font-weight: 700;
 
 }
+
 .home-content p {
     font-size: 2rem;
     text-align: center;
 }
+
 .home-img img {
     border-radius: 50%;
     position: relative;
@@ -184,73 +198,170 @@ span {
     color: black;
     box-shadow: 0 0 25px #b74b4b;
 }
+
 .typing-text {
     font-size: 0.5rem;
     font-weight: 600;
-    min-width: 280px;
 }
+
 .typing-text span {
     position: relative;
 
 }
+
 .typing-text span::before {
     content: "Full Stack Team";
     color: #b74b4b;
     animation: words 20s infinite;
 }
+
 .typing-text span::after {
     content: "";
     background-color: black;
     position: absolute;
-    width: calc(100% - 10%);
-    height: 100%;
-    border-left:3px solid black;
+    height: 50%;
+    border-left: 3px solid black;
     right: -8;
     animation: cursor 0.6s infinite;
 }
+
 @keyframes cursor {
     to {
         border-left: 3px solid #b74b4b;
     }
 }
+
 @keyframes words {
-    0%, 20% {
+
+    0%,
+    20% {
         content: "Front End Team";
     }
-    21%, 40% {
+
+    21%,
+    40% {
         content: "Back End Team";
     }
-    41%, 60% {
+
+    41%,
+    60% {
         content: "Creator of Ideas ";
     }
-    61%, 80% {
+
+    61%,
+    80% {
         content: "Full Stack Team ";
     }
-    81%, 100% {
+
+    81%,
+    100% {
         content: "Support Team";
     }
 
 }
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
+    gap: 3rem;
+
+}
+
+.box {
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+.box p {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.box .box-content {
+    height: 100%;
+    width: 100%;
+    padding: 1em;
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: transform 0.5s ease-in-out;
+    background-size: cover;
+    border-radius: 5px;
+
+}
+
+.box:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease;
+}
+
+.box .btn {
+    display: inline-block;
+    margin-top: auto;
+    background-color: #cccccc52;
+    backdrop-filter: blur(10px);
+}
+
+@media (max-width: 995px) {
+    .home .home-content h3 {
+        font-size: 2rem;
+    }
+
+    .home .home-content h1 {
+        font-size: 4rem;
+    }
+
+    .home-img img {
+        width: 60vh;
+        margin-top: 5rem;
+    }
+
+    .home-content p {
+        font-size: 1.5rem;
+    }
+}
+
 @media (max-width: 1000px) {
+    .typing-text span::after {
+        font-size: 1.5rem;
+    }
+
     .home {
         gap: 4rem;
     }
+
+    header {
+        width: 90%;
+        text-align: center;
+    }
 }
+
 @media (max-width:995px) {
     .home {
         flex-direction: column;
-        margin: 5rem 4rem;
     }
+
     .home .home-content h3 {
         font-size: 2.5rem;
     }
+
     .home .home-content h1 {
         font-size: 5rem;
     }
+
     .home-img img {
         width: 70vh;
         margin-top: 7rem;
     }
+
     .home {
         text-align: center;
     }
