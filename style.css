@@ -3,11 +3,12 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: content-box;
+    box-sizing: border-box;
     text-decoration: none;
     border: none;
     outline: none;
     font-family: 'Poppins', sans-serif;
+
 }
 
 html {
@@ -16,6 +17,7 @@ html {
     position: absolute;
     left: 0;
     top: 0;
+    scroll-behavior: smooth;
 }
 
 
@@ -68,6 +70,7 @@ nav a {
     margin-right: 2vw;
     transition: 0.3s ease;
     border-bottom: 3px solid transparent;
+    transition: .7s ease;
 }
 
 nav a:hover,
@@ -78,11 +81,11 @@ nav a.active {
 
 @media (max-width: 992px) {
     nav {
-        position: absolute;
+        position: fixed;
         display: none;
-        top: -10%;
-        right: 10%;
-        width: 80%;
+        top: 0%;
+        right: 0%;
+        width: 100%;
         border: 3px solid #b74b4b;
         padding: 1rem solid;
         border-radius: 15px;
@@ -189,7 +192,7 @@ span {
     color: #b74b4b;
     letter-spacing: 0.3rem;
     border: 2px solid #b74b4b;
-    transition: 0.3s ease;
+    transition: 0.7s ease;
 }
 
 .btn:hover {
@@ -262,9 +265,8 @@ span {
 
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
+    grid-template-columns: repeat(100%, minmax(3rem, 2fr));
     gap: 3rem;
-
 }
 
 .box {
@@ -286,8 +288,9 @@ span {
 .box .box-content {
     height: 100%;
     width: 100%;
+    box-sizing: border-box;
     padding: 1em;
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(10px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -309,26 +312,63 @@ span {
     background-color: #cccccc52;
     backdrop-filter: blur(10px);
 }
-
-@media (max-width: 995px) {
-    .home .home-content h3 {
-        font-size: 2rem;
-    }
-
-    .home .home-content h1 {
-        font-size: 4rem;
-    }
-
-    .home-img img {
-        width: 60vh;
-        margin-top: 5rem;
-    }
-
-    .home-content p {
-        font-size: 1.5rem;
-    }
+.serv {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #077a4274;
 }
+.form {
+    width: 80vw;
+    height: 80vh;
+    background-color: #4f4bb747;
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.form input {
+    width: 80%;
+    height: 5vh;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+    color: #3a3c97;
+    background-color: #cccccc52;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, width 0.3s ease;
+}
+.form input:focus,.form textarea:focus {
+    transform: scale(1.03);
+    width: 89%;
+    transition: 0.3s ease;
+}
+.form textarea {
+    width: 80%;
+    height: 30vh;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #077a4274;
+    padding: 0.5em;
+    resize: none;
 
+}
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #b74b4b32;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
 @media (max-width: 1000px) {
     .typing-text span::after {
         font-size: 1.5rem;
@@ -341,6 +381,9 @@ span {
     header {
         width: 90%;
         text-align: center;
+    }
+    .container {
+        grid-template-columns: repeat(100%, minmax(3rem, 2fr));
     }
 }
 
